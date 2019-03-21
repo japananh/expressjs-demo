@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content
+	h1.mt-4.mb-4 View user
+
+	table.table.table-hover.mb-4
+		thead
+			tr.table-info
+				th Name
+				th Email
+				th Phone number
+		tbody
+			tr
+				td= user.name
+				td= user.email
+				td= user.phoneNumber
+
+	a.btn.btn-info(href="/users") Back

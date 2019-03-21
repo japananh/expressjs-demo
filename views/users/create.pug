@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content			
+	h1.text-dark.mb-4.mt-4 Create User
+	if errors
+		each error in errors
+			.alert.alert-danger= error
+	form(action='/users/create', method='POST')
+		.form-group
+			label.text-dark(for='name') Username
+			input#name.form-control.mb-2(type='text', name='name', value=values ? values.name : '')
+
+			label.text-dark(for='email') Email
+			input#email.form-control.mb-2(type='email', name='email', value=values ? values.email : '')
+
+			label.text-dark(for='phoneNumber') Phone number
+			input#phoneNumber.form-control.mb-2(type='text', name='phoneNumber', value=values ? values.phoneNumber : '')
+		button.btn.btn-info Create

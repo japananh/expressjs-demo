@@ -1,0 +1,26 @@
+extends ../layouts/common
+block content
+	h1.mt-4
+		span Users
+		a.btn.btn-info.ml-3(href='/users/create') New
+	.d-flex.align-items-center.mb-4
+		form.d-flex.ml-auto(action='/users/search', method='GET')
+			input#input.pl-2(type='text', name='q', placeholder='Search')
+			button.btn.btn-info.ml-2 Search
+
+	table.table.table-hover
+		thead
+			tr.table-info
+				th Name
+				th Email
+				th Phone number
+				th Action
+		tbody
+			each user in users
+				tr
+					td= user.name
+					td= user.email
+					td= user.phoneNumber
+					td
+						a.btn-sm.btn-info(href='/users/' + user.id) View
+						a.btn-sm.btn-info.ml-2(href='/users/' + user.id) Delete					

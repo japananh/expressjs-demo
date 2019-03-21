@@ -1,0 +1,26 @@
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet", href="/styles/custom.css")
+	body
+		nav.navbar.navbar-expand-lg.navbar-dark.bg-info
+			div.container
+				a.navbar-brand(href='/')
+					img(src='../images/zing.png', style='width:2rem')
+				a.navbar-brand(href='/') Zing MP3
+
+				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expended='false', aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+
+				#navbarSupportedContent.collapse.navbar-collapse
+					ul.navbar-nav.ml-auto
+						li.nav-item
+							a.nav-link.text-light(href='/') Home
+						li.nav-item
+							a.nav-link.text-light(href='/users') Users
+		.container
+			block content
+
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
