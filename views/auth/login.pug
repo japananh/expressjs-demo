@@ -1,0 +1,14 @@
+extends ../layouts/common
+block content     
+  h1.text-dark.mb-4.mt-4 Login
+  if errors
+    each error in errors
+      .alert.alert-danger= error
+  form(method='POST')
+    .form-group
+      label.text-dark(for='email') Email
+      input#email.form-control.mb-2(type='email', name='email', value=values ? values.email : '')
+
+      label.text-dark(for='password') Password
+      input#password.form-control.mb-2(type='password', name='password', value=values ? values.password : '')
+    button.btn.btn-info Login

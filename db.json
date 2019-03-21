@@ -1,66 +1,32 @@
 {
   "users": [
     {
-      "name": "Nam Anh",
-      "id": "5I7eME1nM"
-    },
-    {
-      "name": "Giang",
-      "id": "-WzB6dBBI"
-    },
-    {
-      "name": "Lan",
-      "id": "jWcSuxo3c"
-    },
-    {
-      "name": "Lee",
-      "id": "aIE-zrIgY"
-    },
-    {
-      "name": "Micheal",
-      "id": "SMXEn8d8w"
-    },
-    {
-      "name": "Daniel Kanamen",
-      "id": "7bFWTW5mG"
-    },
-    {
-      "name": "Adam",
-      "id": "VuDuec_Y1"
-    },
-    {
-      "name": "Eva",
-      "id": "zrkK7nJ2E"
-    },
-    {
-      "name": "Linda",
-      "id": "xiWfjrELk"
-    },
-    {
-      "name": "John",
-      "id": "ABOQrizTj"
-    },
-    {
-      "name": "July",
-      "id": "lvjg6JJJ3"
-    },
-    {
       "name": "Nancy",
       "email": "nancy@gmail.com",
       "phoneNumber": "0123234345",
-      "id": "Rm3QZ9tFM"
+      "id": "Rm3QZ9tFM",
+      "password": "12344"
     },
     {
       "name": "Nhat Anh",
       "email": "japananh@gmail.com",
       "phoneNumber": "09373737373",
-      "id": "jypMK0zzR"
+      "id": "jypMK0zzR",
+      "password": "123456"
     },
     {
-      "name": "Nam Anh",
-      "email": "namanh@gmail.com",
+      "name": "Lucy",
+      "email": "lucy@gmail.com",
       "phoneNumber": "1234567987",
-      "id": "CVS14M9xG"
+      "id": "CVS14M9xG",
+      "password": "12347"
+    },
+    {
+      "name": "Anh",
+      "email": "anh@gmail.com",
+      "phoneNumber": "23324343",
+      "id": "zCbiaVDjA",
+      "password": "123499"
     }
   ]
 }
