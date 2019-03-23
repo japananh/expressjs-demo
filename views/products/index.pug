@@ -1,3 +1,17 @@
-extended ../layouts/common.pug
+extends ../layouts/common
 block content
-  
+	h1.mt-5 Products
+	.d-flex.align-items-center.mb-4
+		form.d-flex.ml-auto(action='/products/search', method='GET')
+			input#input.pl-2(type='text', name='q', placeholder='...')
+			button.btn.btn-info.ml-2 Search
+
+	.d-flex.flex-wrap
+		each product in products
+			.card.mr-auto.mb-5(style='width: 15rem')
+				img.card-img-top(src= product.image, alt= product.name)
+				.card-body
+					h5.card-title= product.name
+					p.card-text= product.description
+					p.card-text= product.price
+					a.btn.btn-info(href='/products/' + product.id) View

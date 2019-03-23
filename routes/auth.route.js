@@ -1,6 +1,6 @@
 const express = require('express');
 
-const controller = require('../controllers/auth.controller.js');
+const controller = require('../controllers/auth.controller');
 
 const router = express.Router(); // a function to return router object
 
