@@ -3,14 +3,30 @@ block content
 	h1.mt-5 Products
 	.d-flex.align-items-center.mb-4
 		form.d-flex.ml-auto(action='/products/search', method='GET')
-			input#input.pl-2(type='text', name='q', placeholder='...')
+			input#input.pl-2(type='text', name='q', placeholder='Search')
 			button.btn.btn-info.ml-2 Search
 
-	.d-flex.flex-wrap
+	nav(aria-label='')
+		ul.pagination.justify-content-center
+			li.page-item
+				a.page-link(href='#', tabindex='-1', aria-disabled='true')
+					span(aria-hidden='true') &laquo;
+			li.page-item.active(aria-current='page')
+				a.page-link(href='#') 1
+					span.sr-only (current)
+			li.page-item
+				a.page-link(href='#') 2
+			li.page-item
+				a.page-link(href='#') 3
+			li.page-item
+				a.page-link(href='#')
+					span(aria-hidden='true') &raquo;
+
+	.d-flex.flex-wrap(style='margin: -1rem')
 		each product in products
-			.card.mr-auto.mb-5(style='width: 15rem')
+			.card.mb-5(style='width: 15rem; border: 1rem solid #FFF; flex: 1 1 auto;') // Add style to make cards have collapsable margin
 				img.card-img-top(src= product.image, alt= product.name)
-				.card-body
+				.card-body.border
 					h5.card-title= product.name
 					p.card-text= product.description
 					p.card-text= product.price
