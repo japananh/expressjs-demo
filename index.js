@@ -1,4 +1,6 @@
 // Require modules ben ngoai
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -18,7 +20,8 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
+// Use process.env.SESSION_SECRET (duoc khai bao o file .env) de bao mat cookie
+app.use(cookieParser('process.env.SESSION_SECRET'));
 
 app.use(express.static('public'));
 // (req, res) => res.send('Hello World!') is an arrow funtion fallback
