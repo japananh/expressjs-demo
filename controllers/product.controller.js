@@ -6,6 +6,7 @@ module.exports.index = (req, res) => {
 
   let start = (page - 1) * perPage;
   let end = page * perPage;
+  console.log(res.body);
 
   res.render('products/index', {
     products: db.get('products').value().slice(start,end)
@@ -20,6 +21,10 @@ module.exports.search = (req, res) => {
     products: matchedProducts
   }); 
 };
+
+module.exports.get = (req, res) => {
+  
+}
 
 module.exports.get = (req, res) => {
   let id = req.params.id;  

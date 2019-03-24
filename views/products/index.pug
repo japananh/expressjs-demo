@@ -6,25 +6,24 @@ block content
 			input#input.pl-2(type='text', name='q', placeholder='Search')
 			button.btn.btn-info.ml-2 Search
 
-	nav(aria-label='')
+	nav(aria-label='Change page')
 		ul.pagination.justify-content-center
-			li.page-item
+			li#prev.page-item
 				a.page-link(href='#', tabindex='-1', aria-disabled='true')
 					span(aria-hidden='true') &laquo;
 			li.page-item.active(aria-current='page')
 				a.page-link(href='#') 1
-					span.sr-only (current)
 			li.page-item
 				a.page-link(href='#') 2
 			li.page-item
 				a.page-link(href='#') 3
-			li.page-item
+			li#next.page-item
 				a.page-link(href='#')
 					span(aria-hidden='true') &raquo;
-
-	.d-flex.flex-wrap(style='margin: -1rem')
+	//- Add style to make cards have collapsable margin
+	#products.d-flex.flex-wrap(style='margin: -1rem')
 		each product in products
-			.card.mb-5(style='width: 15rem; border: 1rem solid #FFF; flex: 1 1 auto;') // Add style to make cards have collapsable margin
+			.card.mb-5(style='width: 15rem; border: 1rem solid #FFF; flex: 1 1 auto;') 
 				img.card-img-top(src= product.image, alt= product.name)
 				.card-body.border
 					h5.card-title= product.name
