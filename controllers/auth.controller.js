@@ -33,8 +33,9 @@ module.exports.postLogin = (req, res) => {
     });
     return;
   }
-
+  // Set cookie with res.cookie, for more detail visit https://expressjs.com/en/api.html#res.cookie
   res.cookie('userId', user.id, {
+    expires: new Date(Date.now() + 900000),
     signed: true
   });
   
