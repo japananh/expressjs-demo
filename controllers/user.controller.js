@@ -32,8 +32,7 @@ module.exports.get = (req, res) => {
 
 module.exports.postCreate = (req, res) => {
 	req.body.id = shortid.generate();
-
-  // console.log(res.locals);
+  req.body.avatar = req.file.path;
   
 	db.get('users').push(req.body).write();
   
