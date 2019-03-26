@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // Use process.env.SESSION_SECRET (duoc khai bao o file .env) de bao mat cookie
 app.use(cookieParser('process.env.SESSION_SECRET'));
 app.use(sessionMiddleware);
-
+// serve images, CSS files, and JavaScript files in a directory named public:
 app.use(express.static('public'));
 // (req, res) => res.send('Hello World!') is an arrow funtion fallback
 // main methods are GET POST PUT DELETE PATH
