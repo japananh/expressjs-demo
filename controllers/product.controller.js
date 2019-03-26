@@ -22,15 +22,11 @@ module.exports.search = (req, res) => {
   }); 
 };
 
-module.exports.get = (req, res) => {
+// module.exports.get = (req, res) => {
+//   let id = req.params.id;  
+//   let product = db.get('products').find({ id: id }).value();
   
-}
-
-module.exports.get = (req, res) => {
-  let id = req.params.id;  
-  let product = db.get('products').find({ id: id }).value();
-  
-  res.render('products/view', {
-    product: product
-  });
-};
+//   res.render('products/view', {
+//     product: product
+//   });
+// };
