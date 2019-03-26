@@ -6,6 +6,18 @@ block content
 			input#input.pl-2(type='text', name='q', placeholder='Search')
 			button.btn.btn-info.ml-2 Search
 
+	//- Add style to make cards have collapsable margin
+	#products.row
+		each product in products
+			.col-sm-6.col-lg-3
+				.card.mb-5
+					img.card-img-top(src= product.image, alt= product.name)
+					.card-body
+						h5.card-title= product.name
+						p.card-text= product.description
+						p.card-text= product.price
+						a.btn.btn-info(href='/products/' + product.id) View
+
 	nav(aria-label='Change page')
 		ul.pagination.justify-content-center
 			li#prev.page-item
@@ -20,13 +32,3 @@ block content
 			li#next.page-item
 				a.page-link(href='#')
 					span(aria-hidden='true') &raquo;
-	//- Add style to make cards have collapsable margin
-	#products.d-flex.flex-wrap(style='margin: -1rem')
-		each product in products
-			.card.mb-5(style='width: 15rem; border: 1rem solid #FFF; flex: 1 1 auto;') 
-				img.card-img-top(src= product.image, alt= product.name)
-				.card-body.border
-					h5.card-title= product.name
-					p.card-text= product.description
-					p.card-text= product.price
-					a.btn.btn-info(href='/products/' + product.id) View
