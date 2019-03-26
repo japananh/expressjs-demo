@@ -10,6 +10,7 @@ const authRoute = require('./routes/auth.route');
 const productRoute = require('./routes/product.route');
 
 const authMiddleware = require('./middlewares/auth.middleware');
+const sessionMiddleware = require('./middlewares/session.middleware');
 
 // when you start a server, you're required to set up ports to access your applications.
 const port = 3000;
@@ -23,6 +24,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 // Use process.env.SESSION_SECRET (duoc khai bao o file .env) de bao mat cookie
 app.use(cookieParser('process.env.SESSION_SECRET'));
+app.use(sessionMiddleware);
 
 app.use(express.static('public'));
 // (req, res) => res.send('Hello World!') is an arrow funtion fallback
