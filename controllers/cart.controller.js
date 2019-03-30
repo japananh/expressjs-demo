@@ -12,7 +12,7 @@ module.exports.addToCart = (req, res, next) => {
   let userSession = db
     .get('sessions')
     .find({ id: sessionId });
-
+  
   let count = userSession
     .get('cart.' + productId, 0)
     .value();
@@ -26,10 +26,10 @@ module.exports.addToCart = (req, res, next) => {
   let quantity = 0;
   
   for (key in userCart) {
-    quantity += key !== 'quantity' ? userCart[key] : 0;
+    quantity += userCart[key];
   }
   
-  userSession.set('cart.quantity', quantity)
+  userSession.set('quantity', quantity)
     .write();
 
   res.redirect('/products');
