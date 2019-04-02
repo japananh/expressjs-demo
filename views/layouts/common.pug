@@ -2,12 +2,13 @@ html
 	head
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
 		link(rel="stylesheet", href="/styles/custom.css")
+		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
 	body
 		nav.navbar.navbar-expand-lg.navbar-dark.bg-info
 			div.container
 				a.navbar-brand(href='/')
 					img(src='../images/zing.png', style='width:2rem')
-				a.navbar-brand(href='/') Zing MP3
+				a.navbar-brand(href='/') Blue Ocean
 
 				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expended='false', aria-label='Toggle navigation')
 					span.navbar-toggler-icon
@@ -20,6 +21,10 @@ html
 							a.nav-link.text-light(href='/users') Users
 						li.nav-item
 							a.nav-link.text-light(href='/products') Products
+						li.nav-item.d-flex.align-items-center.position-relative
+							a.nav-link(href='#')
+								i.fas.fa-shopping-cart
+								span#count.position-absolute.bg-primary.border.border-info.rounded-pill.text-center.text-light.font-weight-bold(style='top:0; left:1.2rem; font-size:.7rem; width:1.2rem;')= quantity
 		.container
 			block content
 		

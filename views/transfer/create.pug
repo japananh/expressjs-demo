@@ -1,0 +1,14 @@
+extends ../layouts/common
+
+block content
+  h1.mt-5.mb-5 New transfer
+
+  form(method='POST')
+    .form-group
+      label.text-dark(for='account') Account
+      input#account.form-control.mb-2(type='text', name='accountId')
+
+      label.text-dark(for='amount') Amount
+      input#amount.form-control.mb-2(type='number', name='amount')
+
+    button.btn.btn-primary Transfer
