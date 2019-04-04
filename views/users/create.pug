@@ -4,6 +4,7 @@ block content
 	if errors
 		each error in errors
 			.alert.alert-danger= error
+			
 	form(action='/users/create', method='POST', enctype='multipart/form-data')
 		.form-group
 			label.text-dark(for='name') Username
@@ -16,6 +17,10 @@ block content
 		.form-group
 			label.text-dark(for='phoneNumber') Phone number
 			input#phoneNumber.form-control.mb-2(type='text', name='phoneNumber', value=values ? values.phoneNumber : '')
+
+		.form-group
+			label.text-dark(for='password') Password
+			input#password.form-control.mb-2(type='password', name='password', value=values ? values.password : '')
 
 		.form-group
 			label(for='avatar') Image
