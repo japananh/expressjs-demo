@@ -15,10 +15,13 @@ const productRoute = require('./routes/product.route');
 const cartRoute = require('./routes/cart.route');
 const transferRoute = require('./routes/transfer.route');
 
+const apiProductRoute = require('./api/routes/product.route');
+
 const authMiddleware = require('./middlewares/auth.middleware');
 const sessionMiddleware = require('./middlewares/session.middleware');
 
-// when you start a server, you're required to set up ports to access your applications.
+// when you start a server, 
+// you're required to set up ports to access your applications.
 const port = 3000;
 // express() is a funtion which returns a new app.
 const app = express(); 
@@ -46,5 +49,7 @@ app.use('/auth', authRoute);
 app.use('/products', productRoute);
 app.use('/cart', cartRoute);
 app.use('/transfer', authMiddleware.requireAuth, csrfProtetion, transferRoute);
+
+app.use('/api/products', apiProductRoute);
 
 app.listen(port, () => console.log('Server listening on port ' + port));
