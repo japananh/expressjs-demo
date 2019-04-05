@@ -1,6 +1,7 @@
 const db = require('../db');
+const Session = require('../models/session.model');
 
-module.exports.addToCart = (req, res, next) => {
+module.exports.addToCart = async (req, res, next) => {
   let productId = req.params.productId;
   let sessionId = req.signedCookies.sessionId;
 
@@ -8,7 +9,7 @@ module.exports.addToCart = (req, res, next) => {
     res.redirect('/products');
     return;
   }
-
+  // Solution 1 - use lowdb
   let userSession = db
     .get('sessions')
     .find({ id: sessionId });
@@ -31,6 +32,40 @@ module.exports.addToCart = (req, res, next) => {
   
   userSession.set('quantity', quantity)
     .write();
+  // Solution 2 - use mongoose
+  // let userSession = await Session.find({ id: sessionId });
 
-  res.redirect('/products');
-};
+  // if (userSession.length === 0) {
+  //   // phan nay ok =))
+  //   let newSession = {
+  //     id: sessionId,
+  //     cart: {
+  //       1: {
+  //         productId: productId,
+  //         quantity: 1
+  //       }
+  //     },
+  //     total: 1
+  //   };
+
+  //   Session.create(newSession, err => {
+  //     if (err) return handleError(err);
+  //   });
+  // } else {
+  //   // phan nay con bug
+  //   let count = 1;//.productId ? userSession.cart.productId : 0;
+
+  //   Session.findOneAndUpdate(
+  //     { id: sessionId },
+  //     { cart: { 
+  //       2: { 
+  //         productId: productId, 
+  //         quantity: count + 1
+  //       } 
+  //     }},
+  //     { new: true }
+  //   );
+  
+    res.redirect('/products');
+  }
+}
