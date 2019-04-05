@@ -1,7 +1,7 @@
 const db = require('../db');
 const Session = require('../models/session.model');
 
-module.exports.addToCart = async (req, res, next) => {
+module.exports.addToCart = (req, res, next) => {
   let productId = req.params.productId;
   let sessionId = req.signedCookies.sessionId;
 
@@ -26,7 +26,7 @@ module.exports.addToCart = async (req, res, next) => {
 
   let quantity = 0;
   
-  for (key in userCart) {
+  for (let key in userCart) {
     quantity += userCart[key];
   }
   
@@ -67,5 +67,4 @@ module.exports.addToCart = async (req, res, next) => {
   //   );
   
     res.redirect('/products');
-  }
-}
+};
