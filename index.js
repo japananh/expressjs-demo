@@ -4,6 +4,10 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const csurf = require('csurf');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 const userRoute = require('./routes/user.route');
 const authRoute = require('./routes/auth.route');
@@ -27,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // Use process.env.SESSION_SECRET (duoc khai bao o file .env) de bao mat cookie
 app.use(cookieParser('process.env.SESSION_SECRET'));
 app.use(sessionMiddleware);
+//app.use(csurf({ cookie: true })); // dung cach nay lai bi loi?
+const csrfProtetion = csurf({ cookie: true }); //dung cach nay thi khong bi loi?
 // serve images, CSS files, and JavaScript files in a directory named public:
 app.use(express.static('public'));
 // (req, res) => res.send('Hello World!') is an arrow funtion fallback
@@ -35,10 +41,10 @@ app.use(express.static('public'));
 // req - users send data, res - servers return data
 app.get('/', (req, res) => res.render('index'));
 
-app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/users', userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
 app.use('/cart', cartRoute);
-app.use('/transfer', authMiddleware.requireAuth, transferRoute);
+app.use('/transfer', authMiddleware.requireAuth, csrfProtetion, transferRoute);
 
 app.listen(port, () => console.log('Server listening on port ' + port));

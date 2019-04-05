@@ -4,6 +4,8 @@ block content
   h1.mt-5.mb-5 New transfer
 
   form(method='POST')
+    input(type='hidden', name='_csrf', value=csrfToken)
+
     .form-group
       label.text-dark(for='account') Account
       input#account.form-control.mb-2(type='text', name='accountId')
