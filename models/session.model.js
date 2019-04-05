@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let sessionSchema = new mongoose.Schema({
   id: String,
   cart: Object,
-  quantity: Number,
+  total: Number,
 });
 
 let Session = mongoose.model('Session', sessionSchema, 'sessions');
